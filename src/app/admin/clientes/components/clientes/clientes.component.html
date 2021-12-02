@@ -1,0 +1,87 @@
+ <!-- filtros -->
+  <!-- Búsqueda por Código = ID -->
+  <form [formGroup]="filtersForm" novalidate (ngSubmit)="onFilter()">
+    <mat-form-field appearance="standard" class="field-id">
+      <mat-label>Número</mat-label>
+      <input type="number" matInput placeholder="5" formControlName="id">
+    </mat-form-field>
+    <mat-form-field appearance="standard" class="field-fullname">
+      <mat-label>Nombres</mat-label>
+      <input type="text" matInput placeholder="Juan Perez" formControlName="fullname">
+    </mat-form-field>
+    <mat-form-field appearance="standard" class="field-username">
+      <mat-label>Usuario de juego</mat-label>
+      <input type="text" matInput placeholder="5" formControlName="username">
+    </mat-form-field>   
+    <mat-form-field appearance="standard" class="field-code">
+      <mat-label>ID de juego</mat-label>
+      <input type="number" matInput placeholder="547821258" formControlName="code">
+    </mat-form-field>
+    <a mat-mini-fab color="accent" class="filter-button" routerLink="/admin/clientes/add" matTooltip="Nuevo cliente">
+      <mat-icon>
+        person_add
+      </mat-icon>
+    </a>
+  </form>  
+<div class="mat-elevation-z8"> 
+  <!-- tabla -->
+  <table mat-table [dataSource]="clientesDatasource" matSort>
+    <ng-container matColumnDef="id"> 
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Número </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.id }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="fullname">
+      <th mat-header-cell *matHeaderCellDef> Nombres </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.fullname }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="username"> 
+      <th mat-header-cell *matHeaderCellDef> Usuario </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.username }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef> ID juego </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.code }} </td>
+    </ng-container>  
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell mat-cell *matCellDef="let cliente">
+        <a class="pointer">
+          <mat-icon matTooltip="Detalle de cliente" color="accent" (click)="detail(cliente)">
+            search
+          </mat-icon>
+        </a>
+        <a class="pointer">
+          <mat-icon matTooltip="Hacer una recarga" color="primary" (click)="openDialog(cliente)">
+            diamond
+          </mat-icon>
+        </a>        
+      </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let cliente; columns: displayedColumns;" 
+      [class.hidden]="(clientesDatasource.loading$ | async)"
+      class="row"></tr>            
+  </table>
+  
+  <div *ngIf="(clientesDatasource.loading$ | async) as loading_clientes">
+    <mat-progress-bar
+      class="example-margin"
+      color="primary" 
+      mode="indeterminate">
+    </mat-progress-bar>    
+  </div>
+  <mat-paginator
+      [length]         = "clientesDatasource.count$ | async"
+      [pageIndex]      = "0"
+      [pageSize]       = "5"
+      [pageSizeOptions]= "[5, 10, 50, 100]" 
+      aria-label       ="Selecciona una pagina de clientes"></mat-paginator>
+</div>
+<p>
+  &nbsp;
+</p>

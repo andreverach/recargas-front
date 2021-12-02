@@ -1,0 +1,55 @@
+<form [formGroup]="formData" (ngSubmit)="saveCliente($event)">
+  <mat-card>
+    <mat-card-content>    
+      <mat-list>
+        <div mat-subheader>Información del nuevo cliente</div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="row center-xs">
+              <mat-form-field>
+                <input formControlName="fullname" matInput type="text" placeholder="Nombres completos: " autocomplete="off">
+              </mat-form-field>
+              <!-- errores  -->
+              <div *ngIf="fullnameField.errors && fullnameField.dirty">
+                <mat-hint *ngIf="fullnameField.hasError('required')" class="control-error">
+                  *Este campo es requerido
+                </mat-hint>
+              </div>
+            </div>
+            <div class="row center-xs">
+              <mat-form-field>
+                <input formControlName="username" matInput type="text" placeholder="Usuario: " autocomplete="off">
+              </mat-form-field>
+              <div *ngIf="usernameField.errors && usernameField.dirty">
+                <mat-hint *ngIf="usernameField.hasError('required')" class="control-error">
+                  *Este campo es requerido
+                </mat-hint>
+              </div>      
+            </div>
+            <div class="row center-xs">
+              <mat-form-field>
+                <input formControlName="code" matInput type="text" placeholder="ID de juego: " autocomplete="off">
+              </mat-form-field>
+              <div *ngIf="codeField.errors && codeField.dirty">
+                <mat-hint *ngIf="codeField.hasError('required')" class="control-error">
+                  *Este campo es requerido
+                </mat-hint>
+              </div>       
+            </div> 
+          </div>
+          <div class="col-sm-6">
+            <img src="assets/images/personaje01.png" alt="" class="img-add">
+          </div>
+        </div>                
+      </mat-list>    
+    </mat-card-content>
+    <mat-card-actions class="center-xs">
+      <a mat-button routerLink="/admin/clientes">
+        Regresar
+      </a>    
+      <button mat-raised-button color="primary" type="submit" [disabled]="formData.invalid">
+        Guardar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

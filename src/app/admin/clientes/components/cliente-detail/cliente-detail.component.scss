@@ -1,0 +1,23 @@
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+table {
+  width: 100%;
+}
+.pendiente{
+  background-color: #82E0AA;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5%;
+}
+.finalizado{
+  background-color: #E74C3C;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5%;
+}
+.hidden {
+  //display: none;
+  //filter: blur(1px);
+  pointer-events: none;
+}

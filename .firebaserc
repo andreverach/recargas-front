@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "recargas-app-8ec53": {
+      "hosting": {
+        "recargas": [
+          "recargas-app-8ec53"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "recargas-app-8ec53"
+  }
+}

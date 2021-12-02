@@ -1,0 +1,41 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+/*  width: 80%;*/
+}
+
+.field-codigo{
+  width: 10%;  
+}
+.field-fullname{
+  width: 30%;
+  margin-left: 10px;
+}
+.field-code{
+  width: 15%;
+  margin-left: 10px;
+}
+.field-username{
+  width: 30%;
+  margin-left: 10px;
+}
+.filter-button{
+  margin-left: 15px;
+}
+
+td, th {
+  width: 25%;
+}
+
+.hidden {
+  //display: none;
+  //filter: blur(1px);
+  pointer-events: none;
+}
+
+.row{
+  display: table-row;//ó revert cualquier funciona
+}

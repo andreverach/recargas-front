@@ -1,0 +1,92 @@
+ <!-- filtros -->
+<div class="mat-elevation-z8"> 
+  <!-- tabla -->
+  <table mat-table [dataSource]="recargasDatasource" matSort>
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Cliente </th>
+      <td mat-cell *matCellDef="let recarga">  
+        {{ recarga.player.fullname }} <br />
+        ID: {{ recarga.player.code }}
+        <mat-icon matTooltip="Copiar" color="primary" class="small-icon pointer" 
+        [cdkCopyToClipboard]="recarga.player.code">
+          content_copy
+        </mat-icon>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef> Diamantes </th>
+      <td mat-cell *matCellDef="let recarga">
+        {{ recarga.quantity | diamonds }} <br />  
+        S/ {{ recarga.amount }}        
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="cip">
+      <th mat-header-cell *matHeaderCellDef> Código de pago </th>
+      <td mat-cell *matCellDef="let recarga"> {{ recarga.cip }} </td>
+    </ng-container>
+    <ng-container matColumnDef="created_at">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha registro</th>
+      <td mat-cell *matCellDef="let recarga"> {{ recarga.created_at | date:'dd/MM/yyyy H:mm:ss a'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="updated_at">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha pago</th>
+      <td mat-cell *matCellDef="let recarga">         
+        <span *ngIf="recarga.status === '0'">
+          &nbsp;
+        </span>
+        <span *ngIf="recarga.status === '1'">
+          {{ recarga.updated_at | date:'dd/MM/yyyy H:mm:ss a'}}
+        </span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let recarga"> 
+        <span *ngIf="recarga.status === '0'" class="pendiente">
+          Pendiente
+        </span>
+        <span *ngIf="recarga.status === '1'" class="finalizado">
+          Finalizado
+        </span>
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell mat-cell *matCellDef="let recarga">
+        <a href="https://pagostore.com/app" target="_blank" class="pointer" *ngIf="recarga.status === '0'">
+          <mat-icon matTooltip="Ir a pago store" color="accent">
+            open_in_new
+          </mat-icon>
+        </a> 
+        <a class="pointer" *ngIf="recarga.status === '0'" (click)="openDialog(recarga)">
+          <mat-icon matTooltip="Finalizar" color="primary">
+            assignment_turned_in
+          </mat-icon>
+        </a>         
+      </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let recarga; columns: displayedColumns;" 
+      [class.hidden]="(recargasDatasource.loading$ | async)"
+      class="row"></tr>            
+  </table>
+  
+  <div *ngIf="(recargasDatasource.loading$ | async) as loading_recargas">
+    <mat-progress-bar
+      class="example-margin"
+      color="primary" 
+      mode="indeterminate">
+    </mat-progress-bar>    
+  </div>
+  <mat-paginator
+      [length]         = "recargasDatasource.count$ | async"
+      [pageIndex]      = "0"
+      [pageSize]       = "10"
+      [pageSizeOptions]= "[5, 10, 50, 100]" 
+      aria-label       ="Selecciona una pagina de recargas"></mat-paginator>
+</div>
+<p>
+  &nbsp;
+</p>

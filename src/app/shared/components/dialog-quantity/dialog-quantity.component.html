@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Cliente: {{data.cliente.fullname}}</h1>
+<div mat-dialog-content>  
+  <mat-form-field>
+    <mat-label>Seleccionar cantidad de diamantes?</mat-label>
+    <mat-select [(ngModel)]="data.quantity">
+      <mat-option value="100">100 diamantes - S/ 5.50</mat-option>
+      <mat-option value="310">310 diamantes - S/ 13.00</mat-option>
+      <mat-option value="520">520 diamantes - S/ 20.00</mat-option>
+      <mat-option value="1060">1060 diamantes - S/ 38.00</mat-option>
+      <mat-option value="2180">2180 diamantes - S/ 73.00</mat-option>
+      <mat-option value="5600">5600 diamantes - S/ 179.00</mat-option>
+      <mat-option value="S">Tarjeta Semanal - S/ 9.00</mat-option>
+      <mat-option value="M">Tarjeta Mensual - S/ 29.00</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Salir</button>
+  <!-- aca envio data osea para enviar todo el arreglo y no un solo dato como data.quantity -->
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirmar</button>
+</div>
+
