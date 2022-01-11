@@ -1,0 +1,31 @@
+h1 {
+  color: #ebf5fc;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.control-error {
+  font-size: 11px;
+  color: #e74c3c !important;
+}
+
+.custom-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 30%;
+  margin: 0px auto;
+  padding: 2rem 3rem;
+  background-color: #272525;
+}
+.custom-form input {
+  display: block;
+  margin: 2rem 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  border: 0 none;
+  background: #c5c8ca;
+}

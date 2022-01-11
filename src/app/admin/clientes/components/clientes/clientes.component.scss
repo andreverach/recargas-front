@@ -4,29 +4,30 @@ table {
 
 .mat-form-field {
   font-size: 14px;
-/*  width: 80%;*/
+  /*  width: 80%;*/
 }
 
-.field-codigo{
-  width: 10%;  
+.field-codigo {
+  width: 10%;
 }
-.field-fullname{
+.field-fullname {
   width: 30%;
   margin-left: 10px;
 }
-.field-code{
+.field-code {
   width: 15%;
   margin-left: 10px;
 }
-.field-username{
+.field-username {
   width: 30%;
   margin-left: 10px;
 }
-.filter-button{
+.filter-button {
   margin-left: 15px;
 }
 
-td, th {
+td,
+th {
   width: 25%;
 }
 
@@ -36,6 +37,10 @@ td, th {
   pointer-events: none;
 }
 
-.row{
-  display: table-row;//ó revert cualquier funciona
+.row {
+  display: table-row; //ó revert cualquier funciona
+}
+
+.boton-verde {
+  color: green;
 }

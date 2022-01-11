@@ -21,6 +21,7 @@ import { MatPaginatorIntlEspService } from '@shared/utils/mat-paginator-intl-esp
 //componentes
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout/layout.component';
+import { EntradaComponent } from './layout/entrada/entrada.component';//para la entrada principal
 import { MainComponent } from './layout/main/main.component';//layout de las paginas publicas
 
 //firebase
@@ -31,6 +32,7 @@ import { environment } from 'src/environments/environment';
   declarations: [
     AppComponent,
     LayoutComponent,
+    EntradaComponent,
     MainComponent
   ],
   imports: [

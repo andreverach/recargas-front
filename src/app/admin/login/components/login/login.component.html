@@ -1,0 +1,27 @@
+<form [formGroup]="formData" (ngSubmit)="login($event)">
+  <mat-card class="custom-form">
+      <h1>Login</h1>
+      <mat-card-content>    
+        <div class="row center-xs">
+            <input formControlName="fullname" type="email"  placeholder="Email " autocomplete="off"><!--[(ngModel)]="email"--> 
+          <!-- errores  -->
+          <div *ngIf="fullnameField.errors && fullnameField.dirty">
+            <mat-hint *ngIf="fullnameField.hasError('required')" class="control-error">
+              *Invalid email
+            </mat-hint>
+          </div>
+        </div>
+        <div class="row center-xs">
+          <input formControlName="password" type="password"  placeholder="Password " autocomplete="off"> <!--[(ngModel)]="password"-->
+        <!-- errores  -->
+        <div *ngIf="passwordField.errors && passwordField.dirty">
+          <mat-hint *ngIf="passwordField.hasError('required')" class="control-error">
+            *Invalid password
+          </mat-hint>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="formData.invalid">Log in</button>
+      </mat-card-content>
+    
+  </mat-card>
+</form>

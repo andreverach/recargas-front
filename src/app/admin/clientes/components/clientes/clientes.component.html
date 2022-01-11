@@ -1,4 +1,4 @@
- <!-- filtros -->
+<!-- filtros -->
   <!-- Búsqueda por Código = ID -->
   <form [formGroup]="filtersForm" novalidate (ngSubmit)="onFilter()">
     <mat-form-field appearance="standard" class="field-id">
@@ -6,7 +6,7 @@
       <input type="number" matInput placeholder="5" formControlName="id">
     </mat-form-field>
     <mat-form-field appearance="standard" class="field-fullname">
-      <mat-label>Nombres</mat-label>
+      <mat-label>Nombres/Apodos</mat-label>
       <input type="text" matInput placeholder="Juan Perez" formControlName="fullname">
     </mat-form-field>
     <mat-form-field appearance="standard" class="field-username">
@@ -17,11 +17,11 @@
       <mat-label>ID de juego</mat-label>
       <input type="number" matInput placeholder="547821258" formControlName="code">
     </mat-form-field>
-    <a mat-mini-fab color="accent" class="filter-button" routerLink="/admin/clientes/add" matTooltip="Nuevo cliente">
+    <button mat-mini-fab color="accent" class="filter-button" type="submit" matTooltip="Nuevo cliente">
       <mat-icon>
-        person_add
+        search
       </mat-icon>
-    </a>
+    </button>
   </form>  
 <div class="mat-elevation-z8"> 
   <!-- tabla -->
@@ -54,9 +54,9 @@
             search
           </mat-icon>
         </a>
-        <a class="pointer">
-          <mat-icon matTooltip="Hacer una recarga" color="primary" (click)="openDialog(cliente)">
-            diamond
+        <a class="pointer boton-verde" >
+          <mat-icon matTooltip="Hacer una recarga"  (click)="openDialog(cliente)">
+            autorenew
           </mat-icon>
         </a>        
       </td>
