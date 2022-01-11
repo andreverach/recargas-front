@@ -27,6 +27,7 @@ import { MainComponent } from './layout/main/main.component';//layout de las pag
 //firebase
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { environment } from 'src/environments/environment';
     SharedModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
+    NgbModule,
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: MatPaginatorIntlEspService },

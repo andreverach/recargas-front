@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "recargas-games",
+			"path": "..\\recargas-games"
+		},
+		{
+			"name": "recargas-front",
+			"path": "."
+		}
+	]
+}
